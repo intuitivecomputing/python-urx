@@ -23,7 +23,7 @@ sudo python setup.py install
 ```python
 import urx
 
-rob = urx.Robot("192.168.0.100")
+rob = urx.Robot("192.168.1.106")
 rob.set_tcp((0, 0, 0.1, 0, 0, 0))
 rob.set_payload(2, (0, 0, 0.1))
 sleep(0.2)  #leave some time to robot to process the setup commands
@@ -59,7 +59,7 @@ except RobotError, ex:
 from urx import Robot
 import math3d as m3d
 
-robot = Robot("192.168.1.1")
+robot = Robot("192.168.1.106")
 mytcp = m3d.Transform()  # create a matrix for our tool tcp
 mytcp.pos.z = 0.18
 mytcp.orient.rotate_zb(pi/3)
@@ -84,7 +84,7 @@ robot.set_orientation(o)
 ```python
 
 from urx import Robot
-rob = Robot("192.168.1.1")
+rob = Robot("192.168.1.106")
 rob.x  # returns current x
 rob.rx  # returns 0 (could return x component of axis vector, but it is not very usefull
 rob.rx -= 0.1  # rotate tool around X axis
@@ -107,7 +107,7 @@ import urx
 from urx.robotiq_two_finger_gripper import Robotiq_Two_Finger_Gripper
 
 if __name__ == '__main__':
-	rob = urx.Robot("192.168.0.100")
+	rob = urx.Robot("192.168.1.106")
 	robotiqgrip = Robotiq_Two_Finger_Gripper(rob)
 
   robotiqgrip.gripper_init()

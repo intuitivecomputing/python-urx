@@ -6,12 +6,12 @@ Both the 'secondary port' interface and the real-time/matlab interface of the UR
 
 urx was primarily developed by [Olivier Roulet-Dubonnet](https://github.com/oroulet) for [Sintef Raufoss Manufacturing](http://www.sintef.no/manufacturing/).
 
-
+This repo is maintained by [Yuxiang Gao](https://github.com/yuxiang-gao) for [Intuitive Computing Laboratory](intuitivecomputing.jhu.edu).
 
 # Install
 
 The easiest is probably to use pip:
-```sh
+```bash
 git clone https://github.com/intuitivecomputing/python-urx.git
 cd python-urx
 sudo python setup.py install

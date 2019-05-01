@@ -11,8 +11,10 @@ urx was primarily developed by [Olivier Roulet-Dubonnet](https://github.com/orou
 # Install
 
 The easiest is probably to use pip:
-```
-pip install urx
+```sh
+git clone https://github.com/intuitivecomputing/python-urx.git
+cd python-urx
+sudo python setup.py install
 ```
 
 

@@ -156,7 +156,7 @@ class Robotiq_Two_Finger_Gripper(object):
         self.socket_name = socket_name
         self.logger = logging.getLogger(u"robotiq")
 
-    def _get_new_urscript(self):
+    def _get_new_urscript(self, init=False):
         """
         Set up a new URScript to communicate with gripper
         """
@@ -179,14 +179,26 @@ class Robotiq_Two_Finger_Gripper(object):
         urscript._set_gripper_speed(self.speed)
         urscript._set_gripper_force(self.force)
 
-        # Initialize the gripper
-        urscript._set_robot_activate()
-        urscript._set_gripper_activate()
+        if init:
+            # Initialize the gripper
+            urscript._set_robot_activate()
+            urscript._set_gripper_activate()
 
         # Wait on activation to avoid USB conflicts
         urscript._sleep(0.1)
 
         return urscript
+
+    def gripper_init(self):
+        urscript = self._get_new_urscript(init=True)
+        urscript._sleep(2.0)
+        # Send the script
+        self.robot.send_program(urscript())
+
+        # sleep the code the same amount as the urscript to ensure that
+        # the action completes
+        time.sleep(2.0)
+
 
     def gripper_action(self, value):
         """
